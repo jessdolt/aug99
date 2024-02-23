@@ -1,38 +1,135 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+  display: flex;
   min-height: 100vh;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  padding: 16px;
+}
+
+.card {
+  width: 100%;
+  background-color: #f2f2f2;
+  max-width: 1240px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  padding: 3rem;
+  min-height: 800px;
+}
+
+.list-container {
   display: flex;
   flex-direction: column;
+  gap: 1.5rem;
+  flex: 1;
+  max-width: 840px;
+}
+
+.search {
+  padding: 1rem 1.5rem;
+  border: none;
+  border-radius: 5px;
+}
+
+.search::placeholder {
+  color: #a0a0a0;
+  font-style: italic;
+}
+
+.list-items {
+  background-color: #ffffff;
+  border-radius: 5px;
+  padding: 1rem 3rem;
+  list-style: none;
+  max-height: 600px;
+  overflow-y: auto;
+}
+
+.list-item {
+  display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 1rem;
+  padding: 8px;
 }
 
-.App-link {
-  color: #61dafb;
+.list-item img {
+  width: 100px;
+  height: 100px;
 }
 
-@keyframes App-logo-spin {
-  from {
+.list-item-details {
+  flex: 1;
+  padding: 1rem;
+}
+
+.list-item-details h3 {
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.list-item-details p {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.error-message {
+  color: red;
+}
+
+.no-record {
+  text-align: center;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.loader {
+  margin: 0 auto;
+  border: 8px solid #f3f3f3;
+  border-top: 8px solid #565e63;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
     transform: rotate(0deg);
   }
-  to {
+  100% {
     transform: rotate(360deg);
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .card {
+    padding: 1rem;
+    align-items: start;
+  }
+
+  .search {
+    padding: 1rem;
+  }
+
+  .list-items {
+    padding: 0.5rem;
+  }
+
+  .list-item {
+    gap: 0.25rem;
+  }
+
+  .list-item-details h3 {
+    font-size: 16px;
+  }
+
+  .list-item-details p {
+    font-size: 13px;
   }
 }
