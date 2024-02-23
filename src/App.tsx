@@ -69,10 +69,8 @@ function App() {
     }
   }, [observerTarget])
 
-  const filteredData = data.filter(
-    (x) =>
-      x?.name.toLowerCase().includes(search.toLowerCase()) ||
-      x?.flight_number.toLowerCase().includes(search.toLowerCase())
+  const filteredData = data.filter((x) =>
+    x?.name.toLowerCase().includes(search.toLowerCase())
   )
 
   return (
@@ -86,7 +84,9 @@ function App() {
             onChange={(e) => setSearch(e.target.value)}
           />
 
-          <ListItems data={filteredData} ref={observerTarget} />
+          {filteredData.length > 0 && (
+            <ListItems data={filteredData} ref={observerTarget} />
+          )}
 
           <div style={{ minHeight: 50 }}>
             {loading && <div className="loader" />}
